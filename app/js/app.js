@@ -3,5 +3,6 @@
 var app = app || {};
 
 $(function() {
-    new app.PhotosView( photos );
+    var photos = [];
+    app.photoView =  new app.PhotosView( photos );
 });
