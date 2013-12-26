@@ -32,9 +32,11 @@ app.PhotosView = Backbone.View.extend({
     // get new photos
     getPhotos: function(e) {
         e.preventDefault();
+        // get value of search field
+        var searchTerm = $('#searchField').val();
         var thisCollection = this.collection;
-        // jQuery get call to photos.search call
-        $.get( "http://api.flickr.com/services/rest/?method=flickr.photos.search&format=json&api_key=cd30ea58809313bcbe2d7b65482cf48f&per_page=10&nojsoncallback=1&text=polilimnio", function( data ) {
+        // jQuery get call to photos.search call. Pass the searchTerm to the call
+        $.get( "http://api.flickr.com/services/rest/?method=flickr.photos.search&format=json&api_key=cd30ea58809313bcbe2d7b65482cf48f&per_page=10&nojsoncallback=1&text="+searchTerm, function( data ) {
             data.photos.photo.forEach(function(entry) {
                 // http get to get single photo data
                 $.get( 'http://api.flickr.com/services/rest/?method=flickr.photos.getSizes&format=json&api_key=cd30ea58809313bcbe2d7b65482cf48f&nojsoncallback=1&photo_id='+entry.id, function(data) {
