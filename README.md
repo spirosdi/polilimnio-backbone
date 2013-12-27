@@ -14,5 +14,11 @@ The Foundation features used are:
 * Block Grid structure
 * Offcanvas navigation
 
+Flickr API
+------------
+The Flickr API calls used are:
+* flickr.photos.search - http://www.flickr.com/services/api/flickr.photos.search.html
+* flickr.photos.getSizes - http://www.flickr.com/services/api/flickr.photos.getSizes.html
+
 
 
