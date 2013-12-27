@@ -1,7 +1,7 @@
 var app = app || {};
 
 app.PhotoView = Backbone.View.extend({
-    tagName: 'div',
+    tagName: 'li',
     className: 'photoContainer',
     template: _.template( $( '#photoTemplate' ).html() ),
 

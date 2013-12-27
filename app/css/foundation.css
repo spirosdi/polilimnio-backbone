@@ -2929,7 +2929,7 @@ abbr {
 blockquote {
   margin: 0 0 1.25rem;
   padding: 0.5625rem 1.25rem 0 1.1875rem;
-  border-left: 1px solid #dddddd; }
+  /* border-left: 1px solid #dddddd;*/ }
   blockquote cite {
     display: block;
     font-size: 0.8125rem;
@@ -5173,3 +5173,10 @@ th.hide-for-touch {
 
 .touch th.show-for-touch {
   display: table-cell !important; }
+
+/* my css */
+.search-button {
+    color: #fff;
+    font-size: 20px;
+    padding-left: 10px;
+}

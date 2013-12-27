@@ -1,7 +1,7 @@
 var app = app || {};
 
 app.PhotosView = Backbone.View.extend({
-    el: '#photos',
+    el: '#mainContainer',
     events:{
         'click #getPhotos':'getPhotos'
     },
@@ -9,7 +9,11 @@ app.PhotosView = Backbone.View.extend({
         this.collection = new app.Photos( initialPhotos );
         // bind add event in collection to renderPhoto
         this.listenTo( this.collection, 'add', this.renderPhoto );
-
+        // bind reset event in collection to render
+        this.listenTo( this.collection, 'reset', this.render );
+        // initialize photos collection with 'polilimnio' search term
+        $('#searchField').val('polilimnio');
+        this.getPhotos();
         this.render();
     },
 
@@ -26,12 +30,14 @@ app.PhotosView = Backbone.View.extend({
         var photoView = new app.PhotoView({
             model: item
         });
-        this.$el.append( photoView.render().el );
+        this.$el.find('#photos').append( photoView.render().el );
     },
 
     // get new photos
     getPhotos: function(e) {
-        e.preventDefault();
+        // reset collection
+        this.collection.reset([]);
+        this.$el.find('#photos').empty();
         // get value of search field
         var searchTerm = $('#searchField').val();
         var thisCollection = this.collection;
@@ -42,9 +48,12 @@ app.PhotosView = Backbone.View.extend({
                 $.get( 'http://api.flickr.com/services/rest/?method=flickr.photos.getSizes&format=json&api_key=cd30ea58809313bcbe2d7b65482cf48f&nojsoncallback=1&photo_id='+entry.id, function(data) {
                     // create the new Photo model with the fetched data
                     // render the photo
-                    thisCollection.add( new app.Photo({title:entry.title, image: data.sizes.size[0].source}) );
+                    thisCollection.add( new app.Photo({title:entry.title, image: data.sizes.size[3].source}) );
                 });
             });
         });
+
+        // set #search-term's content to searchTerm
+        $('#search-term').text(searchTerm);
     }
 });
