@@ -38,6 +38,8 @@ app.PhotosView = Backbone.View.extend({
         // reset collection
         this.collection.reset([]);
         this.$el.find('#photos').empty();
+        // show loading indicator
+        $('#loading-indicator').show().height($(window).height()-65);
         // get value of search field
         var searchTerm = $('#searchField').val();
         var thisCollection = this.collection;
@@ -48,7 +50,9 @@ app.PhotosView = Backbone.View.extend({
                 $.get( 'http://api.flickr.com/services/rest/?method=flickr.photos.getSizes&format=json&api_key=cd30ea58809313bcbe2d7b65482cf48f&nojsoncallback=1&photo_id='+entry.id, function(data) {
                     // create the new Photo model with the fetched data
                     // render the photo
-                    thisCollection.add( new app.Photo({title:entry.title, image: data.sizes.size[3].source}) );
+                    thisCollection.add( new app.Photo({title:entry.title, image: data.sizes.size[4].source}) );
+                    // hide loading indicator
+                    $('#loading-indicator').hide();
                 });
             });
         });

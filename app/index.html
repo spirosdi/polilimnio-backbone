@@ -10,8 +10,6 @@
     <title>Polilimnio - backbone.js version</title>
 </head>
 <body id="mainContainer">
-
-
 <div class="off-canvas-wrap">
     <div class="inner-wrap">
         <nav class="tab-bar">
@@ -28,23 +26,25 @@
 
         <aside class="left-off-canvas-menu">
             <ul class="off-canvas-list">
-                <li><label>Foundation</label></li>
-                <li><input type="search" id="searchField" placeholder="search..."><button id="getPhotos">search</button></li>
+                <li><label>Search</label></li>
+                <li>
+                    <div class="panel ">
+                        <input type="search" id="searchField" placeholder="search..."><button id="getPhotos">search</button>
+                    </div>
+                </li>
             </ul>
         </aside>
 
         <section class="main-section">
-
+            <section style="display:none" id="loading-indicator">loading...</section>
             <ul id="photos" class="small-block-grid-3">
             </ul>
-
         </section>
 
         <a class="exit-off-canvas"></a>
 
     </div>
 </div>
-
 
 
 
