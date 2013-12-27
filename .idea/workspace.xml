@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c33931b-3492-4050-bfc1-bf56115f6489" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/css/foundation.css" afterPath="$PROJECT_DIR$/app/css/foundation.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/index.html" afterPath="$PROJECT_DIR$/app/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/js/views/photos.js" afterPath="$PROJECT_DIR$/app/js/views/photos.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
     </list>
     <ignored path="polilimnio-backbone.iws" />
     <ignored path=".idea/workspace.xml" />
