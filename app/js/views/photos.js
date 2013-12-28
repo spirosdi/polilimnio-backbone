@@ -13,6 +13,21 @@ app.PhotosView = Backbone.View.extend({
         this.listenTo( this.collection, 'reset', this.render );
         // initialize photos collection with 'polilimnio' search term
         $('#searchField').val('polilimnio');
+        // initialize pageNum to 1 and loading to false
+        app.pageNum = 1;
+        app.loading = false;
+        var that = this;
+        // bind scroll event to check if user has reached the bottom of the window
+        $(window).scroll(function() {
+            if($(window).scrollTop() + $(window).height() == $(document).height()) {
+                // check if loading is false before loading more
+                if(!app.loading) {
+                    console.log('more');
+                    that.getPhotos(true);
+                }
+            }
+        });
+
         this.getPhotos();
         this.render();
     },
@@ -34,17 +49,25 @@ app.PhotosView = Backbone.View.extend({
     },
 
     // get new photos
-    getPhotos: function(e) {
-        // reset collection
-        this.collection.reset([]);
-        this.$el.find('#photos').empty();
-        // show loading indicator
-        $('#loading-indicator').show().height($(window).height()-65);
+    getPhotos: function(more) {
+        if(more) {
+            app.loading = true;
+            app.pageNum++;
+        }
+        else {
+            // reset collection
+            this.collection.reset([]);
+            this.$el.find('#photos').empty();
+            // show loading indicator
+            $('#loading-indicator').show().height($(window).height()-65);
+        }
+
         // get value of search field
         var searchTerm = $('#searchField').val();
         var thisCollection = this.collection;
         // jQuery get call to photos.search call. Pass the searchTerm to the call
-        $.get( "http://api.flickr.com/services/rest/?method=flickr.photos.search&format=json&api_key=cd30ea58809313bcbe2d7b65482cf48f&per_page=10&nojsoncallback=1&text="+searchTerm, function( data ) {
+        $.get( "http://api.flickr.com/services/rest/?method=flickr.photos.search&format=json&api_key=cd30ea58809313bcbe2d7b65482cf48f&per_page=10&nojsoncallback=1&text="+searchTerm+"&page="+app.pageNum, function( data ) {
+            var iterations = 0;
             data.photos.photo.forEach(function(entry) {
                 // http get to get single photo data
                 $.get( 'http://api.flickr.com/services/rest/?method=flickr.photos.getSizes&format=json&api_key=cd30ea58809313bcbe2d7b65482cf48f&nojsoncallback=1&photo_id='+entry.id, function(data) {
@@ -53,6 +76,10 @@ app.PhotosView = Backbone.View.extend({
                     thisCollection.add( new app.Photo({title:entry.title, image: data.sizes.size[4].source}) );
                     // hide loading indicator
                     $('#loading-indicator').hide();
+                    iterations++;
+                    if (iterations == 9 ) {
+                        app.loading = false;
+                    }
                 });
             });
         });
