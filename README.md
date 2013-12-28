@@ -4,7 +4,7 @@ polilimnio-backbone is a backbone.js web app built mobile-first using Foundation
 
 demo
 -----
-Check demo here: http://wantedpixel.com/spiros/polilimnio-backbone/app/ . Open it with your Desktop, iPhone, iPad in landscape or portrait. See how responsive it is. You may also use responsinator: http://www.responsinator.com/?url=http%3A%2F%2Flocalhost%2Fpolilimnio-backbone%2Fapp%2F%23
+Check demo here: http://wantedpixel.com/spiros/polilimnio-backbone/app/ . Open it with your Desktop, iPhone, iPad in landscape or portrait. See how responsive it is. You may also use responsinator: http://www.responsinator.com/?url=http%3A%2F%2Fwantedpixel.com%2Fspiros%2Fpolilimnio-backbone%2Fapp%2F
 
 techonologies
 --------------

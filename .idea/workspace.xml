@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="3c33931b-3492-4050-bfc1-bf56115f6489" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/index.html" afterPath="$PROJECT_DIR$/app/index.html" />
     </list>
     <ignored path="polilimnio-backbone.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -49,7 +48,7 @@
       <file leaf-file-name="README.md" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="288" selection-start="691" selection-end="691" vertical-scroll-proportion="0.09615385" vertical-offset="0" max-vertical-offset="936">
+            <state line="6" column="300" selection-start="703" selection-end="703" vertical-scroll-proportion="0.09615385" vertical-offset="0" max-vertical-offset="936">
               <folding />
             </state>
           </provider>
@@ -582,7 +581,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="288" selection-start="691" selection-end="691" vertical-scroll-proportion="0.09615385" vertical-offset="0" max-vertical-offset="936">
+        <state line="6" column="300" selection-start="703" selection-end="703" vertical-scroll-proportion="0.09615385" vertical-offset="0" max-vertical-offset="936">
           <folding />
         </state>
       </provider>
