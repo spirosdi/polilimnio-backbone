@@ -16,6 +16,8 @@ The Foundation features used are:
 * Grid structure
 * Block Grid structure
 * Offcanvas navigation
+* Pagination navigation
+* Magellan Sticky navigation
 
 Flickr API
 ------------

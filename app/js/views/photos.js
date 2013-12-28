@@ -62,6 +62,14 @@ app.PhotosView = Backbone.View.extend({
             $('#loading-indicator').show().height($(window).height()-65);
         }
 
+        // append page indicator in photos
+        $('#photos').append('<a name="page'+app.pageNum+'"></a><li data-magellan-destination="page'+app.pageNum+'"><h1>'+app.pageNum+'</h1></li>');
+        // append pageNum indicator in pagination
+        $('.pagination').append('<dd data-magellan-arrival="page'+app.pageNum+'"><a href="#page'+app.pageNum+'">'+app.pageNum+'</a></dd>');
+        // call .foundation() to refresh with new DOM
+        $(document).foundation();
+
+
         // get value of search field
         var searchTerm = $('#searchField').val();
         var thisCollection = this.collection;
