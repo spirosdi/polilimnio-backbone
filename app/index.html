@@ -76,6 +76,12 @@
 <script src="js/lib/foundation/foundation.magellan.js"></script>
 <script>
     $(document).foundation();
+    // fix: https://github.com/zurb/foundation/issues/1235 bug
+    $('.sub-nav').click(function(){
+        setTimeout(function() {
+            $(window).scrollTop($(window).scrollTop()+1);
+        }, 100);
+    });
 </script>
 
 
